@@ -23,12 +23,7 @@ app.get('/hello', function(req, res){
 
 app.post('/api/fileanalyse',upload.single('upfile'),function(req,res){
     //Delete the file right away
-    fs.unlink(req.file.path,function(err){
-        if(err){
-            return console.log(err);
-        } else {
-            console.log(req.file.filename+' is deleted');
-        }
+    fs.unlink(req.file.path,function(err){        
     });
     res.json({fileSize: req.file.size})
 });
